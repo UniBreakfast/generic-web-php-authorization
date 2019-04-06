@@ -3,6 +3,7 @@ function setCookie(name, value, days=0, hours=0, minutes=0) {
         expire = new Date(Date.now()+milliseconds)
   document.cookie =
     name+'='+value+'; path=/; expires='+expire.toUTCString()
+  return value
 }
 
 function getCookie(name) {
