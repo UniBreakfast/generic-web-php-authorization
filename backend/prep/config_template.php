@@ -2,11 +2,12 @@
 
 error_reporting(E_PARSE | E_ERROR);
 
+define('DEV', $_REQUEST['dev']);
+
 define('DB_HOST', 'localhost');
-define('DB_LOGIN', 'root');
-define('DB_PASS', '');
+define('DB_LOGIN', DEV? 'root':'');
+define('DB_PASS', DEV? '':'');
 define('DB_NAME', 'sandbox');
-// define('DB_PORT', '3306');
 define('DB_PREFIX', 'gwpa_');
 
 $db = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASS, DB_NAME);
