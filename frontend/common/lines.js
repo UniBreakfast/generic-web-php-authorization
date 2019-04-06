@@ -1,23 +1,40 @@
 lines = {
-  en: {
-    langName: 'English',
-    LogOut: 'LOG OUT',
-    noline: 'line not found',
-    error: 'unknown error',
+  langName: {
+    en: "English",
+    ru: "Русский",
+    ua: "Українська",
   },
-  ru: {
-    langName: 'Русский',
-    LogOut: 'ВЫХОД',
-    noline: 'строка не найдена',
-    error: 'какая-то ошибка',
+  LogOut: {
+    en: "LOG OUT",
+    ru: "ВЫХОД",
+    ua: "ВИЙТИ",
   },
-  ua: {
-    langName: 'Українська',
-    LogOut: 'ВИЙТИ',
-    noline: 'рядок не знайдено',
-    error: 'якась помилка',
-  }
+  noline: {
+    en: "line not found",
+    ru: "строка не найдена",
+    ua: "рядок не знайдено",
+  },
+  error: {
+    en: "unknown error",
+    ru: "какая-то ошибка",
+    ua: "якась помилка",
+  },
 }
 
-addLines = more=> Object.keys(lines).forEach(lang=>
+addLines = more=> lines={...lines,...more}
+
+addLinesR = more=> Object.keys(lines).forEach(lang=>
   lines[lang]={...lines[lang],...more[lang]})
+
+restructure = lines=> Object.keys(lines).reduce((obj,lang)=>{
+	Object.keys(lines[lang]).forEach(key=>{
+		if (!obj[key]) obj[key] = {}
+    obj[key][lang]=lines[lang][key]
+	})
+	return obj
+}, {})
+
+literal =(obj, indent='')=> '{\n'+Object.entries(obj).reduce(
+  (lines, [key,value])=>lines+indent+'  '+key+': '+(typeof value=='object'?
+   literal(value, indent+'  '):'"'+value+'"')+',\n', ''
+)+indent+'}'
