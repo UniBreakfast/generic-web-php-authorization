@@ -1,0 +1,9 @@
+This is going to be a simple Authorization system with the PHP/MySQL backend and a token-cookie on the client. Only 4 pages required at this stage:
+
+  Lobby - lets for user to decide if he/she wants to register or log in. Guests are redirected here if they are trying to access main page without the token-cookie proving that they are logged in
+
+  Register - guests can register here with the new login/password pair or go to Log in page instead
+
+  Log in - registered users can log in here with their login/password pair or go to Register page instead
+
+  Main - users redirected here if they are successfully logged in or did log in before and do have the token-cookie proving that

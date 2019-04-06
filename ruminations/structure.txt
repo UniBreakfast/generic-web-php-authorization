@@ -1,0 +1,62 @@
+root
+  |
+ _offlimits
+  | |
+  | php
+  |   |
+  |   config.php
+  |
+  prep
+  | |
+  | drop_tables.sql
+  | create_tables.sql
+  | create_tables.php
+  |
+  lobby
+  | |
+  | index.html
+  |
+  register
+  | |
+  | index.html
+  |
+  login
+  | |
+  | index.html
+  |
+  backend
+  | |
+  | common
+  | | |
+  | | config.php
+  | | f.php
+  | | validate.php
+  | |
+  | board.php
+  | enter.php
+  | login.php
+  | logout.php
+  | register.php
+  |
+  frontend
+  | |
+  | common
+  | | |
+  | | config.js
+  | | f.js
+  |
+  ruminations
+  | |
+  | brainstorm.txt
+  | entities.txt
+  | steps.txt
+  | structure.txt
+  | tasks.txt
+  |
+  api
+  |
+  gonnabe.txt
+  index.html
+  style.css
+  script.js
+  sketches.xd

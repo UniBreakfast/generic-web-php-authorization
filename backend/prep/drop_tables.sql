@@ -1,0 +1,1 @@
+DROP TABLES gwpa_sessions, gwpa_users;

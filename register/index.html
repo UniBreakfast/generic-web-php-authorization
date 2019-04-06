@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <link rel=stylesheet href=../style.css>
+  <style>
+    label { color: var(--reg) }
+  </style>
+  <script src=../frontend/common/f.js></script>
+  <script src=../frontend/common/config.js></script>
+  <script src=../frontend/common/validate.js></script>
+  <script src=../frontend/common/lines.js></script>
+  <script src=lines.js></script>
+
+  <title data-txt=Register>Register</title>
+</head>
+<body>
+  <div id=alertbox>
+    <p id=informer></p>
+  </div>
+
+  <select id=language></select>
+
+  <form id=form>
+    <label for=login data-txt=Login>Login:</label>
+    <input id=login>
+    <label for=pass data-txt=Password>Password:</label>
+    <input id=pass type=password>
+
+    <a class=btn id=loginBtn href=../login data-txt=SwitchToLogin>Switch to LOG IN page</a>
+    <button id=regBtn data-txt=REGISTER>REGISTER</button>
+  </form>
+  <script> form.onsubmit = e=> register() || e.preventDefault() </script>
+
+  <script src=../frontend/common/translate.js></script>
+
+  <script src=register.js></script>
+</body>
+</html>

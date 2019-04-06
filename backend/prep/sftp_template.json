@@ -1,0 +1,11 @@
+{
+  "name": "acoras sftp",
+  "host": "acoras.in.ua",
+  "protocol": "sftp",
+  "port": 22,
+  "username": "",
+  "password": "",
+  "remotePath": "/var/www/html/",
+  "connectTimeout": 300000,
+  "uploadOnSave": true
+}
