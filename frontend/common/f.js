@@ -31,3 +31,11 @@ function inform(msg, ok) {
   informer.setAttribute('data-txt', key)
   informer.setAttribute('data-val', value)
 }
+
+function logout() {
+  id = getCookie('id'); token = getCookie('token')
+  if (id && token)
+    fetch(`${path}/backend/logout.php?id=${id}&token=${token}&dev=${dev}`)
+  delCookie()
+  location.href = '.'
+}

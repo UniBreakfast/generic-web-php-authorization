@@ -17,11 +17,12 @@ if ($invalid) invWith($invalid);
 $query = "DELETE FROM ".DB_PREFIX."sessions WHERE dt_modify < NOW() - INTERVAL 3 DAY";
 mysqli_query($db, $query) or errWith('delete old query failed');
 
-$query = "SELECT id FROM ".DB_PREFIX."sessions WHERE user_id=$id AND
+$query = "SELECT id, a.user_id FROM ".DB_PREFIX."sessions s LEFT JOIN ".DB_PREFIX."admins a ON s.user_id=a.user_id WHERE s.user_id=$id AND
   (token1='$token' OR token2='$token' OR token3='$token' OR
    token4='$token' OR token5='$token' OR token6='$token')";
 $result = mysqli_query($db, $query) or errWith('get session query failed');
-list ($session) = mysqli_fetch_row($result) or failWith('no such session');
+list ($session,$adm) = mysqli_fetch_row($result) or failWith('no such session');
+if (isset($admin) and !$adm) failWith('not an admin');
 
 $token = randStr();
 

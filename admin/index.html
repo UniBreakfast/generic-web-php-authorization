@@ -2,23 +2,16 @@
 <html lang=en>
 <head>
   <meta charset=UTF-8>
-  <link rel=stylesheet href=../style.css>
-  <style>
-    label { color: var(--login) }
-  </style>
+  <link rel=stylesheet href=../frontend/admin/admin.css>
   <script src=../frontend/common/f.js></script>
   <script src=../frontend/common/config.js></script>
   <script src=../frontend/common/validate.js></script>
   <script src=../frontend/common/lines.js></script>
-  <script src=../frontend/login/lines.js></script>
+  <script src=../frontend/admin/lines.js></script>
 
-  <title data-txt=LogIn>Log in</title>
+  <title data-txt=Admin>Admin</title>
 </head>
 <body>
-  <div id=alertbox>
-    <p id=informer></p>
-  </div>
-
   <select id=language></select>
 
   <form id=form>
@@ -27,13 +20,16 @@
     <label for=pass data-txt=Password>Password:</label>
     <input id=pass type=password>
 
-    <a class=btn id=regBtn href=../register data-txt=SwitchToReg>Switch to REGISTER page</a>
+    <a class=btn id=regBtn href=.. data-txt=SwitchToMain>Switch to MAIN page</a>
     <button id=loginBtn data-txt=LOGIN>LOG IN</button>
   </form>
   <script> form.onsubmit = e=> logIn() || e.preventDefault() </script>
 
+  <h1 id=username data-txt=UserName>UserName</h1>
+  <button id=logoutBtn onclick=logout() data-txt=LogOut>Log Out</button>
+
   <script src=../frontend/common/translate.js></script>
 
-  <script src=../frontend/login/login.js></script>
+  <script src=../frontend/admin/admin.js></script>
 </body>
 </html>
