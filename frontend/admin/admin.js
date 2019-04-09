@@ -1,10 +1,10 @@
-admin_enter()
+admIn()
 
-function admin_enter() {
+function admIn() {
   id = getCookie('id'); token = getCookie('token')
-  if (!id || !token) show_admin_login_form()
+  if (!id || !token) form.style.display = 'grid'
 
-  else fetch(`${path}/backend/enter.php?id=${id}&token=${token}&dev=${dev}`)
+  else fetch(`${path}/backend/admin.php?id=${id}&token=${token}&dev=${dev}`)
     .then(response => response.json())
     .then(({ok,fail,err,inv}) => {
       if (ok) {
@@ -17,17 +17,12 @@ function admin_enter() {
       if (err) console.error(err)
       if (fail) {
         mur(fail)
-        delCookie()
-        show_admin_login_form()
+        form.style.display = 'grid'
       }
       if (inv) console.warn(inv[0]+': '+inv[1])
     })
 }
 
-function show_admin_login_form() {
-  form.style.display = 'grid'
-
-}
 
 checks = [{ sub: 'login', is: /\W/,
             err: 'alphanumeric' },
@@ -52,7 +47,7 @@ function logIn() {
           if (!ok.a) location.href = '..'
           login.value = ''
           pass.value = ''
-          admin_enter()
+          admIn()
         }
         if (fail) inform(fail.replace(/ /g,'')+' %'+login.value)
         if (err) {
@@ -71,5 +66,5 @@ function logout() {
   if (id && token)
     fetch(`${path}/backend/logout.php?id=${id}&token=${token}&dev=${dev}`)
   delCookie()
-  show_admin_login_form()
+  form.style.display = 'grid'
 }
