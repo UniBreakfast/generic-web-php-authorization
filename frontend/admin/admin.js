@@ -13,6 +13,7 @@ function admIn() {
           setCookie('lang',language.value=lang=ok.lang,3) && translate()
         username.innerText = ok.login
         username.removeAttribute('data-txt')
+        console.table(recordsFrom(ok.users))
       }
       if (err) console.error(err)
       if (fail) {

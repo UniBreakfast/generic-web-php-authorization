@@ -18,6 +18,14 @@ delCookie = name=> name? setCookie(name,'',-1) :
 
 mur = console.log
 
+function recordsFrom([headers, rows]) {
+  return rows.map(row => {
+    let obj = {}
+    row.forEach((value,i) => obj[headers[i]] = value)
+    return obj
+  });
+}
+
 function red(el) {
   el.style.borderColor = 'red'
   setTimeout(()=>el.style.borderColor= '', 3000)
