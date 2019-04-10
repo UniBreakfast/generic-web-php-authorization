@@ -1,7 +1,7 @@
 <?php
 require 'checkpoint.php';
 
-$query = "SELECT login, lang FROM ".DB_PREFIX."users LEFT JOIN ".DB_PREFIX."settings ON id=user_id WHERE id=$id";
+$query = p_("SELECT login, lang FROM p_users LEFT JOIN p_settings ON id=user_id WHERE id=$id");
 $result = mysqli_query($db, $query) or errWith('get login query failed');
 list ($login, $lang) = mysqli_fetch_row($result) or failWith('user not found');
 

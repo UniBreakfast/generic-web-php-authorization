@@ -18,6 +18,10 @@ function request() {
   return $values;
 }
 
+function p_($query) {
+  return str_replace('p_', DB_PREFIX, $query);
+}
+
 function randStr($length=32) {
   $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   $str = '';

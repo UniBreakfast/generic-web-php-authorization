@@ -16,12 +16,12 @@ $checks = array(
 $invalid = validate($subj, $checks);
 if ($invalid) invWith($invalid);
 
-$query = "SELECT id FROM ".DB_PREFIX."users WHERE login='$login'";
+$query = p_("SELECT id FROM p_users WHERE login='$login'");
 $result = mysqli_query($db, $query) or errWith('if occupied query failed');
 if (mysqli_fetch_row($result)) failWith('occupied');
 
 $hash = hashStr($pass);
-$query = "INSERT ".DB_PREFIX."users (login, passhash) VALUE ('$login','$hash')";
+$query = p_("INSERT p_users (login, passhash) VALUE ('$login','$hash')");
 mysqli_query($db, $query) or errWith('register query failed');
 
 okWith();

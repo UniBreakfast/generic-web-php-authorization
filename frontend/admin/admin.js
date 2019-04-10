@@ -48,6 +48,7 @@ function logIn() {
           if (!ok.a) location.href = '..'
           login.value = ''
           pass.value = ''
+          alertbox.style.display = 'none'
           admIn()
         }
         if (fail) inform(fail.replace(/ /g,'')+' %'+login.value)
